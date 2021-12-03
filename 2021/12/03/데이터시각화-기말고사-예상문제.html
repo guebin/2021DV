@@ -462,14 +462,14 @@ $$<p>이때 위의 수식의 분모에 사용할 시도별 인구수는 아래�
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>힌트6.</strong> <code>eval()</code>을 이용하면 데이터프레임에서 간단한 column별 연산을 수행할 수 있다.</p>
+<p><strong>힌트6.</strong> <code>eval()</code>을 이용하면 데이터프레임에서 간단한 column별 연산을 수행할 수 있다. (필요하다면 참고하라)</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>(예시)</p>
+<p>(예제) 아래의 데이터프레임에서 $x/y$를 수행하고 결과를 $z$에 저장하라.</p>
 
 </div>
 </div>
@@ -558,6 +558,13 @@ $$<p>이때 위의 수식의 분모에 사용할 시도별 인구수는 아래�
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이1)</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -646,6 +653,13 @@ $$<p>이때 위의 수식의 분모에 사용할 시도별 인구수는 아래�
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이2)</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -734,6 +748,16 @@ $$<p>이때 위의 수식의 분모에 사용할 시도별 인구수는 아래�
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 물론 아래와 같이 수행해도 된다</p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>힌트7.</strong> 시도별 접종률의 결과는 아래와 같다.</p>
