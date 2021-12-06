@@ -1,5 +1,5 @@
-,type
-A,prog
-B,cons
-C,prog
-D,cons
+type
+prog
+cons
+prog
+cons
