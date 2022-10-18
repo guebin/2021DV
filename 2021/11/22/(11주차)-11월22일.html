@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>(11주차) 11월22일 | 데이터시각화 (전북대학교 2021년 2학기)</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="(11주차) 11월22일" />
+<meta name="author" content="최규빈" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="folium" />
+<meta property="og:description" content="folium" />
+<link rel="canonical" href="https://guebin.github.io/DV2021/2021/11/22/(11%EC%A3%BC%EC%B0%A8)-11%EC%9B%9422%EC%9D%BC.html" />
+<meta property="og:url" content="https://guebin.github.io/DV2021/2021/11/22/(11%EC%A3%BC%EC%B0%A8)-11%EC%9B%9422%EC%9D%BC.html" />
+<meta property="og:site_name" content="데이터시각화 (전북대학교 2021년 2학기)" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-22T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"folium","url":"https://guebin.github.io/DV2021/2021/11/22/(11%EC%A3%BC%EC%B0%A8)-11%EC%9B%9422%EC%9D%BC.html","@type":"BlogPosting","headline":"(11주차) 11월22일","dateModified":"2021-11-22T00:00:00-06:00","datePublished":"2021-11-22T00:00:00-06:00","author":{"@type":"Person","name":"최규빈"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://guebin.github.io/DV2021/2021/11/22/(11%EC%A3%BC%EC%B0%A8)-11%EC%9B%9422%EC%9D%BC.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/DV2021/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://guebin.github.io/DV2021/feed.xml" title="데이터시각화 (전북대학교 2021년 2학기)" /><link rel="shortcut icon" type="image/x-icon" href="/DV2021/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/DV2021/">데이터시각화 (전북대학교 2021년 2학기)</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/DV2021/about/">About Me</a><a class="page-link" href="/DV2021/search/">Search</a><a class="page-link" href="/DV2021/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">(11주차) 11월22일</h1><p class="page-description">folium</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-11-22T00:00:00-06:00" itemprop="datePublished">
+        Nov 22, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최규빈</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/guebin/DV2021/tree/master/_notebooks/2021-11-22-(11주차) 11월22일.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/DV2021/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/guebin/DV2021/master?filepath=_notebooks%2F2021-11-22-%2811%EC%A3%BC%EC%B0%A8%29+11%EC%9B%9422%EC%9D%BC.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/DV2021/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/guebin/DV2021/blob/master/_notebooks/2021-11-22-(11주차) 11월22일.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/DV2021/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#강의영상">강의영상 </a></li>
+<li class="toc-entry toc-h3"><a href="#import">import </a></li>
+<li class="toc-entry toc-h3"><a href="#folium.Map">folium.Map </a></li>
+<li class="toc-entry toc-h3"><a href="#folium.Marker">folium.Marker </a></li>
+<li class="toc-entry toc-h3"><a href="#folium.CircleMarker">folium.CircleMarker </a></li>
+<li class="toc-entry toc-h3"><a href="#plugins.HeatMap">plugins.HeatMap </a></li>
+<li class="toc-entry toc-h3"><a href="#plugins.HeatMapWithTime">plugins.HeatMapWithTime </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#step1:-numpy">step1: numpy </a></li>
+<li class="toc-entry toc-h4"><a href="#step2:-folium">step2: folium </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#예제:-earthquakes">예제: earthquakes </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Step1:-Pandas">Step1: Pandas </a></li>
+<li class="toc-entry toc-h4"><a href="#Step2:-folium">Step2: folium </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-11-22-(11주차) 11월22일.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="강의영상">
+<a class="anchor" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>강의영상<a class="anchor-link" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-yTghRbW5NQ-bHPnBnoJwvc" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> (1/7) Map object (1)</p>
+<p><code>-</code> (2/7) Map object (2)</p>
+<p><code>-</code> (3/7) Marker (1)</p>
+<p><code>-</code> (4/7) Marker (2)</p>
+<p><code>-</code> (5/7) flugins (1)</p>
+<p><code>-</code> (6/7) flugins (2)</p>
+<p><code>-</code> (7/7) 지진자료시각화</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="import">
+<a class="anchor" href="#import" aria-hidden="true"><span class="octicon octicon-link"></span></a>import<a class="anchor-link" href="#import"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">folium</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="folium.Map">
+<a class="anchor" href="#folium.Map" aria-hidden="true"><span class="octicon octicon-link"></span></a>folium.Map<a class="anchor-link" href="#folium.Map"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> global view</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> location과 scale을 조정하는 방법</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>tiles</code> 옵션을 주어서 지도의 외형을 변경하여 보자.</p>
+<ul>
+<li>"<strong>OpenStreetMap</strong>"</li>
+<li>"Stamen Terrain", "<strong>Stamen Toner</strong>", "Stamen Watercolor"</li>
+<li>"<strong>CartoDB positron</strong>", "CartoDB dark_matter"</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+             <span class="n">tiles</span><span class="o">=</span><span class="s2">"CartoDB positron"</span><span class="p">)</span>
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="folium.Marker">
+<a class="anchor" href="#folium.Marker" aria-hidden="true"><span class="octicon octicon-link"></span></a>folium.Marker<a class="anchor-link" href="#folium.Marker"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 지도위에 무엇인가 오브젝트를 추가하는데, 가장 기본적인 것이 마커임 (점이라 생각해도 괜찮음)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마커안에 내용을 넣을 수 있음. (경우에 따라서는 유용하다)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+             <span class="n">tiles</span><span class="o">=</span><span class="s2">"CartoDB positron"</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'JBNU'</span><span class="p">,</span>
+              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">'university'</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'fa'</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.837688889992634</span><span class="p">,</span> <span class="mf">127.11212714586104</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'HOME'</span>              
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.map.Marker at 0x7f54727532b0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 조금 더 다양한 아이콘들을 추가하여 보자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+             <span class="n">tiles</span><span class="o">=</span><span class="s2">"CartoDB positron"</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'JBNU'</span><span class="p">,</span>
+              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">'music'</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'fa'</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.837688889992634</span><span class="p">,</span> <span class="mf">127.11212714586104</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'HOME'</span>              
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.map.Marker at 0x7f5472753790&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>icon='university'</code> 대신에 쓸만한 옵션들</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>icon='street-view'</li>
+<li>icon='tree'</li>
+<li>icon='plane'</li>
+<li>icon='bell'</li>
+<li>... </li>
+</ul>
+<p><strong><a href="https://getbootstrap.com/docs/3.3/components/">https://getbootstrap.com/docs/3.3/components/</a></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마커에 HTML넣기</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+             <span class="n">tiles</span><span class="o">=</span><span class="s2">"CartoDB positron"</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;h2&gt; JBNU &lt;/h2&gt;&lt;br&gt;'</span><span class="p">,</span>
+              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">'music'</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'fa'</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.837688889992634</span><span class="p">,</span> <span class="mf">127.11212714586104</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;h5&gt; HOME &lt;/h5&gt;&lt;br&gt;'</span>              
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.map.Marker at 0x7f54a844e340&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마커에 DataFrame (을 HTML로 바꿔서) 넣기</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">2019</span><span class="p">,</span><span class="mi">35</span><span class="p">],[</span><span class="mi">2020</span><span class="p">,</span><span class="mi">35</span><span class="p">],[</span><span class="mi">2021</span><span class="p">,</span><span class="mi">33</span><span class="p">]],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">,</span><span class="s1">'Enrollment'</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'&lt;table border="1" class="dataframe"&gt;\n  &lt;thead&gt;\n    &lt;tr style="text-align: right;"&gt;\n      &lt;th&gt;&lt;/th&gt;\n      &lt;th&gt;Year&lt;/th&gt;\n      &lt;th&gt;Enrollment&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;th&gt;0&lt;/th&gt;\n      &lt;td&gt;2019&lt;/td&gt;\n      &lt;td&gt;35&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;1&lt;/th&gt;\n      &lt;td&gt;2020&lt;/td&gt;\n      &lt;td&gt;35&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;2&lt;/th&gt;\n      &lt;td&gt;2021&lt;/td&gt;\n      &lt;td&gt;33&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+             <span class="n">tiles</span><span class="o">=</span><span class="s2">"CartoDB positron"</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;h2&gt; JBNU &lt;/h2&gt;&lt;br&gt;'</span><span class="o">+</span><span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">(),</span>
+              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">'music'</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'fa'</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.837688889992634</span><span class="p">,</span> <span class="mf">127.11212714586104</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;h5&gt; HOME &lt;/h5&gt;&lt;br&gt;'</span>              
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.map.Marker at 0x7f547270ef10&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 논리구조상 HTML 오브젝트를 아무거나 넣을 수 있다. $\to$ 그림도 넣을 수 있나?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="s1">'o--r'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'temp.png'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_encoded</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'temp.png'</span><span class="p">,</span><span class="s1">'rb'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">_myhtml</span> <span class="o">=</span> <span class="s1">'&lt;img src="data:image/png;base64,</span><span class="si">{}</span><span class="s1">"&gt;'</span><span class="o">.</span><span class="n">format</span>
+<span class="n">_iframe</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">IFrame</span><span class="p">(</span><span class="n">_myhtml</span><span class="p">(</span><span class="n">_encoded</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'UTF-8'</span><span class="p">)),</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">_popup</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="n">_iframe</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>인터넷에서 긁어온 코드 </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+             <span class="n">tiles</span><span class="o">=</span><span class="s2">"CartoDB positron"</span>
+            <span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="n">_popup</span><span class="p">,</span>
+              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">'music'</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'fa'</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.837688889992634</span><span class="p">,</span> <span class="mf">127.11212714586104</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;h5&gt; HOME &lt;/h5&gt;&lt;br&gt;'</span>              
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.map.Marker at 0x7f5470a2b370&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="folium.CircleMarker">
+<a class="anchor" href="#folium.CircleMarker" aria-hidden="true"><span class="octicon octicon-link"></span></a>folium.CircleMarker<a class="anchor-link" href="#folium.CircleMarker"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+             <span class="n">tiles</span><span class="o">=</span><span class="s2">"CartoDB positron"</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="n">_popup</span><span class="p">,</span>
+              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">'music'</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'fa'</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+
+<span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.84676618432067</span><span class="p">,</span> <span class="mf">127.12936405235232</span><span class="p">],</span> 
+                    <span class="n">radius</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">fill_color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                    <span class="n">popup</span><span class="o">=</span><span class="s1">'JBNU'</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.837688889992634</span><span class="p">,</span> <span class="mf">127.11212714586104</span><span class="p">],</span>
+              <span class="c1">#tooltip='Click me',</span>
+              <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;h5&gt; HOME &lt;/h5&gt;&lt;br&gt;'</span>              
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.map.Marker at 0x7f5470a472b0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 다양한 마커를 그냥 지옴처럼 생각해도 괜찮아보임</p>
+<p><code>-</code> 동그라미 하나 그리는데 너무 많이 노력을 하는것 같기도 함.</p>
+<p><code>-</code> Circle이 아니라 라인, 사각형, 폴리곤등도 지도에 추가할수 있으나 더 많은 노력이 필요하다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="plugins.HeatMap">
+<a class="anchor" href="#plugins.HeatMap" aria-hidden="true"><span class="octicon octicon-link"></span></a>plugins.HeatMap<a class="anchor-link" href="#plugins.HeatMap"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Heatmap은 폴리움에서 데이터 시각화를 하기에 적합한 기본도구임</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">folium</span> <span class="kn">import</span> <span class="n">plugins</span> 
+<span class="n">data</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">28</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">5</span><span class="p">]]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">([</span><span class="mi">28</span><span class="p">,</span><span class="mi">77</span><span class="p">],</span><span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plugins</span><span class="o">.</span><span class="n">HeatMap</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> 
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.plugins.heat_map.HeatMap at 0x7f547270ee20&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="plugins.HeatMapWithTime">
+<a class="anchor" href="#plugins.HeatMapWithTime" aria-hidden="true"><span class="octicon octicon-link"></span></a>plugins.HeatMapWithTime<a class="anchor-link" href="#plugins.HeatMapWithTime"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 입자의 위치</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\begin{cases}
+x_t = x_{t-1} +\epsilon_t \\ 
+y_t = y_{t-1} +\eta_t 
+\end{cases}$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>단 $(x_0,y_0)=(35.837688889992634, 127.11212714586104)$ 라고 하고 $\epsilon_t$와 $\eta_t$는 서로 독립인 정규분포이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>최종적인 차원: 프레임수 <em> 점의수 </em> 2 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="step1:-numpy">
+<a class="anchor" href="#step1:-numpy" aria-hidden="true"><span class="octicon octicon-link"></span></a>step1: numpy<a class="anchor-link" href="#step1:-numpy"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">35.837688889992634</span><span class="p">,</span><span class="mf">127.11212714586104</span><span class="p">]]</span><span class="o">*</span><span class="mi">3000</span><span class="p">)</span>
+<span class="n">walk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.0001</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t0</span> <span class="c1"># 시점0 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 35.83768889, 127.11212715],
+       [ 35.83768889, 127.11212715],
+       [ 35.83768889, 127.11212715],
+       ...,
+       [ 35.83768889, 127.11212715],
+       [ 35.83768889, 127.11212715],
+       [ 35.83768889, 127.11212715]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t0</span><span class="o">+</span><span class="n">walk</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:]</span><span class="c1"># 시점1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 35.83755719, 127.11227851],
+       [ 35.83765071, 127.11201433],
+       [ 35.83789666, 127.11204495],
+       ...,
+       [ 35.83768979, 127.11199086],
+       [ 35.83755687, 127.11218764],
+       [ 35.83755343, 127.11213141]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t0</span><span class="o">+</span><span class="n">walk</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:]</span><span class="o">+</span><span class="n">walk</span><span class="p">[</span><span class="mi">1</span><span class="p">,:,:]</span><span class="c1"># 시점2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 35.83749504, 127.11210571],
+       [ 35.83752415, 127.11207603],
+       [ 35.83815204, 127.11198859],
+       ...,
+       [ 35.83775445, 127.11185324],
+       [ 35.83749663, 127.11216901],
+       [ 35.83735671, 127.11200109]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그런데 <code>walk[0,:,:]+walk[1,:,:]</code>를 좀더 간단하게 쓸수 있다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">walk</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:]</span><span class="o">+</span><span class="n">walk</span><span class="p">[</span><span class="mi">1</span><span class="p">,:,:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-1.93853401e-04, -2.14362201e-05],
+       [-1.64739936e-04, -5.11175119e-05],
+       [ 4.63152733e-04, -1.38557716e-04],
+       ...,
+       [ 6.55632933e-05, -2.73901961e-04],
+       [-1.92264443e-04,  4.18592999e-05],
+       [-3.32182778e-04, -1.26051762e-04]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">walk</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-1.93853401e-04, -2.14362201e-05],
+       [-1.64739936e-04, -5.11175119e-05],
+       [ 4.63152733e-04, -1.38557716e-04],
+       ...,
+       [ 6.55632933e-05, -2.73901961e-04],
+       [-1.92264443e-04,  4.18592999e-05],
+       [-3.32182778e-04, -1.26051762e-04]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 따라서 시점2는 아래와 같이 표현가능</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t0</span><span class="o">+</span><span class="n">walk</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 35.83749504, 127.11210571],
+       [ 35.83752415, 127.11207603],
+       [ 35.83815204, 127.11198859],
+       ...,
+       [ 35.83775445, 127.11185324],
+       [ 35.83749663, 127.11216901],
+       [ 35.83735671, 127.11200109]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그렇다면 시점3은?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t0</span><span class="o">+</span><span class="n">walk</span><span class="p">[:</span><span class="mi">3</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 35.83746132, 127.11195158],
+       [ 35.83740523, 127.11208138],
+       [ 35.83810142, 127.11186624],
+       ...,
+       [ 35.83767941, 127.1118255 ],
+       [ 35.83733062, 127.11206738],
+       [ 35.83743684, 127.11198322]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 따라서 data 는</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="n">t0</span><span class="o">+</span><span class="n">walk</span><span class="p">[:</span><span class="n">i</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(200, 3000, 2)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이제 data[0], data[1], data[2], ... data[199]까지 대입하여 각각 그림을 그리고 시각화하면 된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="step2:-folium">
+<a class="anchor" href="#step2:-folium" aria-hidden="true"><span class="octicon octicon-link"></span></a>step2: folium<a class="anchor-link" href="#step2:-folium"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">35.837688889992634</span><span class="p">,</span><span class="mf">127.11212714586104</span><span class="p">],</span>
+             <span class="n">zoom_start</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plugins</span><span class="o">.</span><span class="n">HeatMapWithTime</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.plugins.heat_map_withtime.HeatMapWithTime at 0x7f547270e280&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>가스의 확산과정 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="예제:-earthquakes">
+<a class="anchor" href="#%EC%98%88%EC%A0%9C:-earthquakes" aria-hidden="true"><span class="octicon octicon-link"></span></a>예제: earthquakes<a class="anchor-link" href="#%EC%98%88%EC%A0%9C:-earthquakes"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Step1:-Pandas">
+<a class="anchor" href="#Step1:-Pandas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step1: Pandas<a class="anchor-link" href="#Step1:-Pandas"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'https://raw.githubusercontent.com/plotly/datasets/master/earthquakes-23k.csv'</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Magnitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01/02/1965</td>
+      <td>19.2460</td>
+      <td>145.6160</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01/04/1965</td>
+      <td>1.8630</td>
+      <td>127.3520</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01/05/1965</td>
+      <td>-20.5790</td>
+      <td>-173.9720</td>
+      <td>6.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01/08/1965</td>
+      <td>-59.0760</td>
+      <td>-23.5570</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01/09/1965</td>
+      <td>11.9380</td>
+      <td>126.4270</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>23407</th>
+      <td>12/28/2016</td>
+      <td>38.3917</td>
+      <td>-118.8941</td>
+      <td>5.6</td>
+    </tr>
+    <tr>
+      <th>23408</th>
+      <td>12/28/2016</td>
+      <td>38.3777</td>
+      <td>-118.8957</td>
+      <td>5.5</td>
+    </tr>
+    <tr>
+      <th>23409</th>
+      <td>12/28/2016</td>
+      <td>36.9179</td>
+      <td>140.4262</td>
+      <td>5.9</td>
+    </tr>
+    <tr>
+      <th>23410</th>
+      <td>12/29/2016</td>
+      <td>-9.0283</td>
+      <td>118.6639</td>
+      <td>6.3</td>
+    </tr>
+    <tr>
+      <th>23411</th>
+      <td>12/30/2016</td>
+      <td>37.3973</td>
+      <td>141.4103</td>
+      <td>5.5</td>
+    </tr>
+  </tbody>
+</table>
+<p>23412 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lst</span><span class="o">=</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)))</span><span class="o">.</span>\
+<span class="n">groupby</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span><span class="o">.</span>\
+<span class="n">pipe</span><span class="p">(</span><span class="nb">list</span><span class="p">)[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span><span class="o">.</span>\
+<span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2017</span><span class="o">-</span><span class="mi">1965</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Step2:-folium">
+<a class="anchor" href="#Step2:-folium" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step2: folium<a class="anchor-link" href="#Step2:-folium"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">scrollWheelZoom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plugins</span><span class="o">.</span><span class="n">HeatMapWithTime</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1965</span><span class="p">,</span><span class="mi">2017</span><span class="p">)))</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="c1">#m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;folium.plugins.heat_map_withtime.HeatMapWithTime at 0x7f5472755d60&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 숙제:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>지진자료에서 1985년 이후의 자료만 고른뒤에 HeatMapWithTime()을 이용하여 시각화하라.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="guebin/DV2021"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/DV2021/2021/11/22/(11%EC%A3%BC%EC%B0%A8)-11%EC%9B%9422%EC%9D%BC.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/DV2021/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/DV2021/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/DV2021/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/guebin" target="_blank" title="guebin"><svg class="svg-icon grey"><use xlink:href="/DV2021/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
